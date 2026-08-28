@@ -1,0 +1,30 @@
+.card {
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.btn-action {
+    height: 40px;
+    font-size: 16px;
+    padding: 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 3px;
+    border: none;
+}
+
+.btn-action svg{
+    height: 100%;
+    aspect-ratio: 1;
+}
+.btn-action div {
+    padding: 5px;
+
+}
+
+.btn-action:hover {
+    background-color: rgb(223, 223, 223);
+}

@@ -1,0 +1,236 @@
+{
+    "pending": [
+        {
+            "name": "Science Assignment",
+            "details": {
+                "date-created": {
+                    "name": "Date Created",
+                    "value": "12-08-2026"
+                },
+                "final-date-of-completion": {
+                    "name": "Final Date of Completion",
+                    "value": "14-09-2026"
+                },
+                "status": {
+                    "name": "Status",
+                    "value": "Pending"
+                },
+                "date-of-completion": null
+            }
+        },
+        {
+            "name": "Build React Task Manager",
+            "details": {
+                "date-created": {
+                    "name": "Date Created",
+                    "value": "20-08-2026"
+                },
+                "final-date-of-completion": {
+                    "name": "Final Date of Completion",
+                    "value": "05-09-2026"
+                },
+                "status": {
+                    "name": "Status",
+                    "value": "Pending"
+                },
+                "date-of-completion": null
+            }
+        },
+        {
+            "name": "Complete Database Project",
+            "details": {
+                "date-created": {
+                    "name": "Date Created",
+                    "value": "22-08-2026"
+                },
+                "final-date-of-completion": {
+                    "name": "Final Date of Completion",
+                    "value": "12-09-2026"
+                },
+                "status": {
+                    "name": "Status",
+                    "value": "Pending"
+                },
+                "date-of-completion": null
+            }
+        },
+        {
+            "name": "Finish Operating Systems Assignment",
+            "details": {
+                "date-created": {
+                    "name": "Date Created",
+                    "value": "25-08-2026"
+                },
+                "final-date-of-completion": {
+                    "name": "Final Date of Completion",
+                    "value": "18-09-2026"
+                },
+                "status": {
+                    "name": "Status",
+                    "value": "Pending"
+                },
+                "date-of-completion": null
+            }
+        }
+    ],
+    "completed": [
+        {
+            "name": "Learn React Basics",
+            "details": {
+                "date-created": {
+                    "name": "Date Created",
+                    "value": "01-08-2026"
+                },
+                "final-date-of-completion": {
+                    "name": "Final Date of Completion",
+                    "value": "15-08-2026"
+                },
+                "status": {
+                    "name": "Status",
+                    "value": "Completed"
+                },
+                "date-of-completion": {
+                    "name": "Date of Completion",
+                    "value": "12-08-2026"
+                }
+            }
+        },
+        {
+            "name": "Create Blog Website",
+            "details": {
+                "date-created": {
+                    "name": "Date Created",
+                    "value": "05-08-2026"
+                },
+                "final-date-of-completion": {
+                    "name": "Final Date of Completion",
+                    "value": "20-08-2026"
+                },
+                "status": {
+                    "name": "Status",
+                    "value": "Completed"
+                },
+                "date-of-completion": {
+                    "name": "Date of Completion",
+                    "value": "18-08-2026"
+                }
+            }
+        },
+        {
+            "name": "Install Bootstrap",
+            "details": {
+                "date-created": {
+                    "name": "Date Created",
+                    "value": "10-08-2026"
+                },
+                "final-date-of-completion": {
+                    "name": "Final Date of Completion",
+                    "value": "14-08-2026"
+                },
+                "status": {
+                    "name": "Status",
+                    "value": "Completed"
+                },
+                "date-of-completion": {
+                    "name": "Date of Completion",
+                    "value": "13-08-2026"
+                }
+            }
+        },
+        {
+            "name": "Set Up Express Server",
+            "details": {
+                "date-created": {
+                    "name": "Date Created",
+                    "value": "16-08-2026"
+                },
+                "final-date-of-completion": {
+                    "name": "Final Date of Completion",
+                    "value": "22-08-2026"
+                },
+                "status": {
+                    "name": "Status",
+                    "value": "Completed"
+                },
+                "date-of-completion": {
+                    "name": "Date of Completion",
+                    "value": "20-08-2026"
+                }
+            }
+        }
+    ],
+    "failed": [
+        {
+            "name": "Complete Node.js Course",
+            "details": {
+                "date-created": {
+                    "name": "Date Created",
+                    "value": "01-07-2026"
+                },
+                "final-date-of-completion": {
+                    "name": "Final Date of Completion",
+                    "value": "20-07-2026"
+                },
+                "status": {
+                    "name": "Status",
+                    "value": "Failed"
+                },
+                "date-of-completion": null
+            }
+        },
+        {
+            "name": "Build Portfolio Website",
+            "details": {
+                "date-created": {
+                    "name": "Date Created",
+                    "value": "10-07-2026"
+                },
+                "final-date-of-completion": {
+                    "name": "Final Date of Completion",
+                    "value": "01-08-2026"
+                },
+                "status": {
+                    "name": "Status",
+                    "value": "Failed"
+                },
+                "date-of-completion": null
+            }
+        },
+        {
+            "name": "Finish JavaScript Course",
+            "details": {
+                "date-created": {
+                    "name": "Date Created",
+                    "value": "15-07-2026"
+                },
+                "final-date-of-completion": {
+                    "name": "Final Date of Completion",
+                    "value": "10-08-2026"
+                },
+                "status": {
+                    "name": "Status",
+                    "value": "Failed"
+                },
+                "date-of-completion": null
+            }
+        },
+        {
+            "name": "Complete Python Project",
+            "details": {
+                "date-created": {
+                    "name": "Date Created",
+                    "value": "01-08-2026"
+                },
+                "final-date-of-completion": {
+                    "name": "Final Date of Completion",
+                    "value": "18-08-2026"
+                },
+                "status": {
+                    "name": "Status",
+                    "value": "Failed"
+                },
+                "date-of-completion": null
+            }
+        }
+    ]
+}
