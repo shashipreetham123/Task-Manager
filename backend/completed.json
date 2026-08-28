@@ -1,0 +1,86 @@
+[
+    {
+        "name": "Learn React Basics",
+        "details": {
+            "date-created": {
+                "name": "Date Created",
+                "value": "01-08-2026"
+            },
+            "final-date-of-completion": {
+                "name": "Final Date of Completion",
+                "value": "15-08-2026"
+            },
+            "status": {
+                "name": "Status",
+                "value": "Completed"
+            },
+            "date-of-completion": {
+                "name": "Date of Completion",
+                "value": "12-08-2026"
+            }
+        }
+    },
+    {
+        "name": "Create Blog Website",
+        "details": {
+            "date-created": {
+                "name": "Date Created",
+                "value": "05-08-2026"
+            },
+            "final-date-of-completion": {
+                "name": "Final Date of Completion",
+                "value": "20-08-2026"
+            },
+            "status": {
+                "name": "Status",
+                "value": "Completed"
+            },
+            "date-of-completion": {
+                "name": "Date of Completion",
+                "value": "18-08-2026"
+            }
+        }
+    },
+    {
+        "name": "Install Bootstrap",
+        "details": {
+            "date-created": {
+                "name": "Date Created",
+                "value": "10-08-2026"
+            },
+            "final-date-of-completion": {
+                "name": "Final Date of Completion",
+                "value": "14-08-2026"
+            },
+            "status": {
+                "name": "Status",
+                "value": "Completed"
+            },
+            "date-of-completion": {
+                "name": "Date of Completion",
+                "value": "13-08-2026"
+            }
+        }
+    },
+    {
+        "name": "Set Up Express Server",
+        "details": {
+            "date-created": {
+                "name": "Date Created",
+                "value": "16-08-2026"
+            },
+            "final-date-of-completion": {
+                "name": "Final Date of Completion",
+                "value": "22-08-2026"
+            },
+            "status": {
+                "name": "Status",
+                "value": "Completed"
+            },
+            "date-of-completion": {
+                "name": "Date of Completion",
+                "value": "20-08-2026"
+            }
+        }
+    }
+]

@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Complete Node.js Course",
+        "details": {
+            "date-created": {
+                "name": "Date Created",
+                "value": "01-07-2026"
+            },
+            "final-date-of-completion": {
+                "name": "Final Date of Completion",
+                "value": "20-07-2026"
+            },
+            "status": {
+                "name": "Status",
+                "value": "Failed"
+            },
+            "date-of-completion": null
+        }
+    },
+    {
+        "name": "Build Portfolio Website",
+        "details": {
+            "date-created": {
+                "name": "Date Created",
+                "value": "10-07-2026"
+            },
+            "final-date-of-completion": {
+                "name": "Final Date of Completion",
+                "value": "01-08-2026"
+            },
+            "status": {
+                "name": "Status",
+                "value": "Failed"
+            },
+            "date-of-completion": null
+        }
+    },
+    {
+        "name": "Finish JavaScript Course",
+        "details": {
+            "date-created": {
+                "name": "Date Created",
+                "value": "15-07-2026"
+            },
+            "final-date-of-completion": {
+                "name": "Final Date of Completion",
+                "value": "10-08-2026"
+            },
+            "status": {
+                "name": "Status",
+                "value": "Failed"
+            },
+            "date-of-completion": null
+        }
+    },
+    {
+        "name": "Complete Python Project",
+        "details": {
+            "date-created": {
+                "name": "Date Created",
+                "value": "01-08-2026"
+            },
+            "final-date-of-completion": {
+                "name": "Final Date of Completion",
+                "value": "18-08-2026"
+            },
+            "status": {
+                "name": "Status",
+                "value": "Failed"
+            },
+            "date-of-completion": null
+        }
+    }
+]

@@ -1,12 +1,12 @@
 import './Card.css'
 import { TrashIcon, EditIcon, CheckIcon } from './Icons'
-function Card({details, status}) {
+function Card({task, category}) {
     return (
         <div className="card">
             <div className="card-body">
-                <h3 className="card-title">{details.name}</h3>
+                <h3 className="card-title">{task.name}</h3>
                 {
-                    Object.entries(details.details).map(([key, value]) => {
+                    Object.entries(task.details).map(([key, value]) => {
                         if (value) {
                             return (<p key={key} className='card-text'>{value.name}: {value.value}</p>)
                         }
@@ -14,7 +14,7 @@ function Card({details, status}) {
                 }
             </div>
             {
-                (status == "Pending" && 
+                (category == "Pending" && 
                     <div className="card-actions">
                         <button className="btn-action">
                             <EditIcon></EditIcon>
