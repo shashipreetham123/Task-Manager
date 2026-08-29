@@ -1,0 +1,52 @@
+.modifier-container {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.input-group {
+    box-sizing: border-box;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 5px;
+}
+
+.input-group input {
+    font-size: 16px;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 5px gray;
+    outline-color: rgba(83, 175, 255, 0.014);
+    transition: outline 250ms ease;
+}
+
+.input-group input:focus {
+    outline: 4px solid rgba(83, 175, 255, 0.485);
+}
+
+.modifier-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+.modifier-actions button {
+    font-size: 16px;
+    padding: 10px;
+    min-width: 100px;
+    margin: 5px;
+    border: none;
+    background-color: rgba(0, 102, 255, 0.328);
+    border-radius: 3px;
+}
+.modifier-actions button:hover {
+    background-color: rgba(0, 102, 255, 0.56);
+}

@@ -1,74 +1,26 @@
 [
     {
-        "name": "Complete Node.js Course",
-        "details": {
-            "date-created": {
-                "name": "Date Created",
-                "value": "01-07-2026"
-            },
-            "final-date-of-completion": {
-                "name": "Final Date of Completion",
-                "value": "20-07-2026"
-            },
-            "status": {
-                "name": "Status",
-                "value": "Failed"
-            },
-            "date-of-completion": null
-        }
+        "id": 8,
+        "name": "Complete JavaScript Course",
+        "dateCreated": "2026-07-01",
+        "finalDateOfCompletion": "2026-07-20",
+        "dateOfCompletion": null,
+        "status": "failed"
     },
     {
+        "id": 9,
         "name": "Build Portfolio Website",
-        "details": {
-            "date-created": {
-                "name": "Date Created",
-                "value": "10-07-2026"
-            },
-            "final-date-of-completion": {
-                "name": "Final Date of Completion",
-                "value": "01-08-2026"
-            },
-            "status": {
-                "name": "Status",
-                "value": "Failed"
-            },
-            "date-of-completion": null
-        }
+        "dateCreated": "2026-08-05",
+        "finalDateOfCompletion": "2026-08-15",
+        "dateOfCompletion": null,
+        "status": "failed"
     },
     {
-        "name": "Finish JavaScript Course",
-        "details": {
-            "date-created": {
-                "name": "Date Created",
-                "value": "15-07-2026"
-            },
-            "final-date-of-completion": {
-                "name": "Final Date of Completion",
-                "value": "10-08-2026"
-            },
-            "status": {
-                "name": "Status",
-                "value": "Failed"
-            },
-            "date-of-completion": null
-        }
-    },
-    {
-        "name": "Complete Python Project",
-        "details": {
-            "date-created": {
-                "name": "Date Created",
-                "value": "01-08-2026"
-            },
-            "final-date-of-completion": {
-                "name": "Final Date of Completion",
-                "value": "18-08-2026"
-            },
-            "status": {
-                "name": "Status",
-                "value": "Failed"
-            },
-            "date-of-completion": null
-        }
+        "id": 10,
+        "name": "Learn Node.js",
+        "dateCreated": "2026-08-10",
+        "finalDateOfCompletion": "2026-08-25",
+        "dateOfCompletion": null,
+        "status": "failed"
     }
 ]

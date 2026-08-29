@@ -13,6 +13,9 @@ function Navbar() {
             </button>
 
             <div className="navbar-nav">
+                <NavLink to="/modify/pending/new" className="nav-link">
+                    New Task
+                </NavLink>
                 <NavLink to="/" className="nav-link">
                     Pending
                 </NavLink>
@@ -24,6 +27,8 @@ function Navbar() {
                 <NavLink to="/failed" className="nav-link">
                     Failed
                 </NavLink>
+
+
             </div>
         </nav>
     );

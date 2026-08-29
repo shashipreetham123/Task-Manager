@@ -1,7 +1,9 @@
 .container {
-    margin: 0;
-    padding: 10px;
+    width: 100%;
     box-sizing: border-box;
+    padding: 10px;
+    margin: 0;
+
 }
 .layout {
     display: grid;
@@ -11,5 +13,10 @@
 @media (max-width: 768px) {
     .layout {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 576px) {
+    .layout {
+        grid-template-columns: repeat(1, 1fr);
     }
 }

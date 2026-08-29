@@ -1,86 +1,26 @@
 [
     {
+        "id": 1,
         "name": "Learn React Basics",
-        "details": {
-            "date-created": {
-                "name": "Date Created",
-                "value": "01-08-2026"
-            },
-            "final-date-of-completion": {
-                "name": "Final Date of Completion",
-                "value": "15-08-2026"
-            },
-            "status": {
-                "name": "Status",
-                "value": "Completed"
-            },
-            "date-of-completion": {
-                "name": "Date of Completion",
-                "value": "12-08-2026"
-            }
-        }
+        "dateCreated": "2026-08-01",
+        "finalDateOfCompletion": "2026-08-10",
+        "dateOfCompletion": "2026-08-10",
+        "status": "completed"
     },
     {
-        "name": "Create Blog Website",
-        "details": {
-            "date-created": {
-                "name": "Date Created",
-                "value": "05-08-2026"
-            },
-            "final-date-of-completion": {
-                "name": "Final Date of Completion",
-                "value": "20-08-2026"
-            },
-            "status": {
-                "name": "Status",
-                "value": "Completed"
-            },
-            "date-of-completion": {
-                "name": "Date of Completion",
-                "value": "18-08-2026"
-            }
-        }
+        "id": 2,
+        "name": "Create Blog UI",
+        "dateCreated": "2026-08-12",
+        "finalDateOfCompletion": "2026-08-18",
+        "dateOfCompletion": "2026-08-18",
+        "status": "completed"
     },
     {
+        "id": 3,
         "name": "Install Bootstrap",
-        "details": {
-            "date-created": {
-                "name": "Date Created",
-                "value": "10-08-2026"
-            },
-            "final-date-of-completion": {
-                "name": "Final Date of Completion",
-                "value": "14-08-2026"
-            },
-            "status": {
-                "name": "Status",
-                "value": "Completed"
-            },
-            "date-of-completion": {
-                "name": "Date of Completion",
-                "value": "13-08-2026"
-            }
-        }
-    },
-    {
-        "name": "Set Up Express Server",
-        "details": {
-            "date-created": {
-                "name": "Date Created",
-                "value": "16-08-2026"
-            },
-            "final-date-of-completion": {
-                "name": "Final Date of Completion",
-                "value": "22-08-2026"
-            },
-            "status": {
-                "name": "Status",
-                "value": "Completed"
-            },
-            "date-of-completion": {
-                "name": "Date of Completion",
-                "value": "20-08-2026"
-            }
-        }
+        "dateCreated": "2026-08-15",
+        "finalDateOfCompletion": "2026-08-16",
+        "dateOfCompletion": "2026-08-16",
+        "status": "completed"
     }
 ]

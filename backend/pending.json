@@ -1,74 +1,34 @@
 [
     {
+        "id": 4,
         "name": "Science Assignment",
-        "details": {
-            "date-created": {
-                "name": "Date Created",
-                "value": "12-08-2026"
-            },
-            "final-date-of-completion": {
-                "name": "Final Date of Completion",
-                "value": "14-09-2026"
-            },
-            "status": {
-                "name": "Status",
-                "value": "Pending"
-            },
-            "date-of-completion": null
-        }
+        "dateCreated": "2026-08-12",
+        "finalDateOfCompletion": "2027-09-14",
+        "dateOfCompletion": null,
+        "status": "pending"
     },
     {
-        "name": "Build React Task Manager",
-        "details": {
-            "date-created": {
-                "name": "Date Created",
-                "value": "20-08-2026"
-            },
-            "final-date-of-completion": {
-                "name": "Final Date of Completion",
-                "value": "05-09-2026"
-            },
-            "status": {
-                "name": "Status",
-                "value": "Pending"
-            },
-            "date-of-completion": null
-        }
+        "id": 5,
+        "name": "React Router Project",
+        "dateCreated": "2026-08-20",
+        "finalDateOfCompletion": "2026-08-30",
+        "dateOfCompletion": null,
+        "status": "pending"
     },
     {
-        "name": "Complete Database Project",
-        "details": {
-            "date-created": {
-                "name": "Date Created",
-                "value": "22-08-2026"
-            },
-            "final-date-of-completion": {
-                "name": "Final Date of Completion",
-                "value": "12-09-2026"
-            },
-            "status": {
-                "name": "Status",
-                "value": "Pending"
-            },
-            "date-of-completion": null
-        }
+        "id": 6,
+        "name": "Database Integration",
+        "dateCreated": "2026-08-22",
+        "finalDateOfCompletion": "2026-09-05",
+        "dateOfCompletion": null,
+        "status": "pending"
     },
     {
-        "name": "Finish Operating Systems Assignment",
-        "details": {
-            "date-created": {
-                "name": "Date Created",
-                "value": "25-08-2026"
-            },
-            "final-date-of-completion": {
-                "name": "Final Date of Completion",
-                "value": "18-09-2026"
-            },
-            "status": {
-                "name": "Status",
-                "value": "Pending"
-            },
-            "date-of-completion": null
-        }
+        "id": 7,
+        "name": "Operating Systems Assignment",
+        "dateCreated": "2026-08-25",
+        "finalDateOfCompletion": "2026-09-10",
+        "dateOfCompletion": null,
+        "status": "pending"
     }
 ]
