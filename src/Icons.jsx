@@ -1,4 +1,4 @@
-export function TrashIcon({ stroke ="#000000", fill = "none"}) {
+export function TrashIcon({ stroke = "#000000", fill = "none" }) {
     return (
         <svg viewBox="0 0 24 24" fill={fill} xmlns="http://www.w3.org/2000/svg">
             <path stroke={stroke} d="M18 6L17.1991 18.0129C17.129 19.065 17.0939 19.5911 16.8667 19.99C16.6666 20.3412 16.3648 20.6235 16.0011 20.7998C15.588 21 15.0607 21 14.0062 21H9.99377C8.93927 21 8.41202 21 7.99889 20.7998C7.63517 20.6235 7.33339 20.3412 7.13332 19.99C6.90607 19.5911 6.871 19.065 6.80086 18.0129L6 6M4 6H20M16 6L15.7294 5.18807C15.4671 4.40125 15.3359 4.00784 15.0927 3.71698C14.8779 3.46013 14.6021 3.26132 14.2905 3.13878C13.9376 3 13.523 3 12.6936 3H11.3064C10.477 3 10.0624 3 9.70951 3.13878C9.39792 3.26132 9.12208 3.46013 8.90729 3.71698C8.66405 4.00784 8.53292 4.40125 8.27064 5.18807L8 6M14 10V17M10 10V17" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -19,12 +19,19 @@ export function CheckIcon({ stroke = "#000000", fill = "none" }) {
         </svg>
     )
 }
-export function HamburgerIcon({ fill = "none", stroke = "#000000"}) {
+export function HamburgerIcon({ fill = "none", stroke = "#000000" }) {
     return (
         <svg viewBox="0 0 24 24" fill={fill} xmlns="http://www.w3.org/2000/svg">
             <path d="M4 18L20 18" stroke={stroke} strokeWidth="2" strokeLinecap="round" />
             <path d="M4 12L20 12" stroke={stroke} strokeWidth="2" strokeLinecap="round" />
             <path d="M4 6L20 6" stroke={stroke} strokeWidth="2" strokeLinecap="round" />
+        </svg>
+    )
+}
+export function CrossIcon({fill="none", stroke="#000000"}) {
+    return (
+        <svg viewBox="0 0 24 24" fill={fill} xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 5L4.99998 19M5.00001 5L19 19" stroke={stroke} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
     )
 }

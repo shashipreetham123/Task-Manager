@@ -13,7 +13,7 @@ function Navbar() {
             </button>
 
             <div className="navbar-nav">
-                <NavLink to="/modify/pending/new" className="nav-link">
+                <NavLink to="/" className="nav-link">
                     New Task
                 </NavLink>
                 <NavLink to="/" className="nav-link">

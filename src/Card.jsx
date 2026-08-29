@@ -1,11 +1,10 @@
+import { useState } from 'react'
 import './Card.css'
 import { TrashIcon, EditIcon, CheckIcon } from './Icons'
+import { Modal } from './Modal'
 
-import { useNavigate } from 'react-router-dom'
 
-function Card({ task, category, index }) {
-    const navigate = useNavigate()
-
+function Card({ task, category, setModal, showModal }) {
     const keyMapping = {
         "dateCreated": "Date Created",
         "dateOfCompletion": "Date of Completion",
@@ -13,8 +12,10 @@ function Card({ task, category, index }) {
         "status": "Status"
     }
 
-    function navigateToRoute(e) {
-        navigate(e.target.closest(".btn-action").dataset.linkTo)
+
+    function showEditModal() {
+        setModal(<Modal type="edit" editTask={task} showModal={showModal}/>)
+        showModal(true)
     }
 
     return (
@@ -30,11 +31,11 @@ function Card({ task, category, index }) {
                 }
             </div>
             <div className="card-actions">
-                <button className="btn-action" data-link-to={`/modify/${category.toLowerCase()}/${index}`} onClick={navigateToRoute}>
+                <button className="btn-action" onClick={showEditModal}>
                     <EditIcon></EditIcon>
                     <div>Edit</div>
                 </button>
-                <button className="btn-action" data-link-to={`/delete/${category.toLowerCase()}/${index}`} onClick={navigateToRoute}>
+                <button className="btn-action">
                     <TrashIcon></TrashIcon>
                     <div>Delete</div>
                 </button>

@@ -5,3 +5,18 @@ body {
   width: 100%;
   font-family: system-ui;
 }
+
+.black-full-screen {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.152);
+  z-index: 100;
+}
+
+.on-top {
+  z-index: 101;
+}
