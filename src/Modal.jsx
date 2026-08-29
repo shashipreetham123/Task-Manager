@@ -2,9 +2,9 @@ import './Modal.css'
 import { CrossIcon } from './Icons'
 import { useState } from 'react'
 
-export function Modal( {type, editTask, showModal} ) {
+export function Modal( {type, editTask, onClose} ) {
     if(type == "edit") {
-        return <EditModal editTask={editTask} showModal={showModal}/>
+        return <EditModal editTask={editTask} onClose={onClose}/>
     }else if(type == "empty") {
 
     }else {
@@ -13,10 +13,7 @@ export function Modal( {type, editTask, showModal} ) {
 }
 
 
-function EditModal({ editTask, showModal }) {
-    function hideModal() {
-        showModal(false)
-    }
+function EditModal({ editTask, onClose }) {
 
     const [taskName, setTaskName] = useState(editTask.name)
     const [compDate, setCompDate] = useState(editTask.finalDateOfCompletion)
@@ -32,14 +29,13 @@ function EditModal({ editTask, showModal }) {
         
     }
 
-
     return (
         <div className="modal-container on-top">
             <div className="modal">
                 <div className="modal-head">
                     <div className="modal-name">Edit Task</div>
 
-                    <div className="modal-close-button" onClick={hideModal}>
+                    <div className="modal-close-button" onClick={onClose}>
                         <CrossIcon></CrossIcon>
                     </div>
                 </div>

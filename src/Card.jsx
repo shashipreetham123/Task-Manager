@@ -4,7 +4,7 @@ import { TrashIcon, EditIcon, CheckIcon } from './Icons'
 import { Modal } from './Modal'
 
 
-function Card({ task, category, setModal, showModal }) {
+function Card({ task, category, setModal }) {
     const keyMapping = {
         "dateCreated": "Date Created",
         "dateOfCompletion": "Date of Completion",
@@ -14,8 +14,11 @@ function Card({ task, category, setModal, showModal }) {
 
 
     function showEditModal() {
-        setModal(<Modal type="edit" editTask={task} showModal={showModal}/>)
-        showModal(true)
+        setModal({
+            type: "edit",
+            editTask: task,
+            visible: true
+        })
     }
 
     return (
