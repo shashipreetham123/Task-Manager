@@ -3,8 +3,9 @@ import "./Navbar.css";
 import { useState } from "react";
 import { HamburgerIcon } from "./Icons";
 
-function Navbar() {
+function Navbar({setCreateTask}) {
     const [navbarToggle, setNavbarToggle] = useState(false);
+
 
     return (
         <nav className="navbar">
@@ -13,7 +14,7 @@ function Navbar() {
             </button>
 
             <div className="navbar-nav">
-                <NavLink to="/" className="nav-link">
+                <NavLink className="nav-link" onClick={() => setCreateTask(true)}>
                     New Task
                 </NavLink>
                 <NavLink to="/" className="nav-link">

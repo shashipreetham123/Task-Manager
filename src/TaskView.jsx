@@ -2,12 +2,13 @@ import './TaskView.css'
 import Card from './Card'
 import { useState } from 'react'
 import { Modal } from './Modal'
-function TaskView({ tasks, category }) {
+function TaskView({ createTask, setCreateTask, addToTasks, removeFromTasks, tasks, category }) {
 
     const [modal, setModal] = useState({
         type: null,
-        editTask: null,
-        visible: false
+        task: null,
+        visible: false,
+        taskId: null
     })
 
     function modalClose() {
@@ -19,13 +20,14 @@ function TaskView({ tasks, category }) {
 
     return (
         <>
-            {modal.visible && (<Modal type={modal.type} editTask={modal.editTask} onClose={modalClose}/>)}
+            {createTask && (<Modal type="create-task" addToTasks={addToTasks} setCreateTask={setCreateTask}/>)}
+            {modal.visible && (<Modal type={modal.type} removeFromTasks={removeFromTasks} addToTasks={addToTasks} taskId={modal.taskId} task={modal.task} onClose={modalClose}/>)}
             <div className="task-container">
                 <h1>{category} Tasks</h1>
                 <div className="layout">
                     {
-                        tasks.map((task, i) => {
-                            return <Card key={i} task={task} category={category} setModal={setModal}></Card>
+                        Object.entries(tasks).map(([id, task]) => {
+                            return <Card key={id} id={id} task={task} category={category} setModal={setModal}></Card>
                         })
                     }
                 </div>

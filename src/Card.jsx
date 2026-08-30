@@ -1,10 +1,7 @@
-import { useState } from 'react'
 import './Card.css'
 import { TrashIcon, EditIcon, CheckIcon } from './Icons'
-import { Modal } from './Modal'
 
-
-function Card({ task, category, setModal }) {
+function Card({ id, task, category, setModal }) {
     const keyMapping = {
         "dateCreated": "Date Created",
         "dateOfCompletion": "Date of Completion",
@@ -12,13 +9,14 @@ function Card({ task, category, setModal }) {
         "status": "Status"
     }
 
-
-    function showEditModal() {
+    function showModal(type) {
         setModal({
-            type: "edit",
-            editTask: task,
-            visible: true
+            type: type,
+            task: task,
+            visible: true,
+            taskId: id
         })
+
     }
 
     return (
@@ -34,18 +32,18 @@ function Card({ task, category, setModal }) {
                 }
             </div>
             <div className="card-actions">
-                <button className="btn-action" onClick={showEditModal}>
+                <button className="btn-action" onClick={() => showModal("edit")}>
                     <EditIcon></EditIcon>
                     <div>Edit</div>
                 </button>
-                <button className="btn-action">
+                <button className="btn-action" onClick={() => showModal("delete-conformation")}>
                     <TrashIcon></TrashIcon>
                     <div>Delete</div>
                 </button>
                 {
                     (category == "Pending" &&
                         <>
-                            <button className="btn-action">
+                            <button className="btn-action" onClick={() => showModal("mark-complete-conformation")}>
                                 <CheckIcon></CheckIcon>
                                 <div>Mark as Complete</div>
                             </button>

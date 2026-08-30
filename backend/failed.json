@@ -1,5 +1,5 @@
-[
-    {
+{
+    "8": {
         "id": 8,
         "name": "Complete JavaScript Course",
         "dateCreated": "2026-07-01",
@@ -7,7 +7,7 @@
         "dateOfCompletion": null,
         "status": "failed"
     },
-    {
+    "9": {
         "id": 9,
         "name": "Build Portfolio Website",
         "dateCreated": "2026-08-05",
@@ -15,7 +15,7 @@
         "dateOfCompletion": null,
         "status": "failed"
     },
-    {
+    "10": {
         "id": 10,
         "name": "Learn Node.js",
         "dateCreated": "2026-08-10",
@@ -23,4 +23,4 @@
         "dateOfCompletion": null,
         "status": "failed"
     }
-]
+}

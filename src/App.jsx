@@ -20,12 +20,14 @@ function App() {
   const [pendingTasks, setPendingTasks] = useState(null)
   const [completedTasks, setCompletedTasks] = useState(null)
   const [failedTasks, setFailedTasks] = useState(null)
+  const [createTask, setCreateTask] = useState(false)
+
 
   useEffect(() => {
     readFile("pending", (result) => {
       if (result && !result.err) {
         setPendingTasks(JSON.parse(result.data))
-      } 
+      }
     })
     readFile("completed", (result) => {
       if (result && !result.err) {
@@ -37,32 +39,64 @@ function App() {
         setFailedTasks(JSON.parse(result.data))
       }
     })
-    
+
   }, [])
 
-  function addToPendingTasks(details) {
-    setPendingTasks(prevTasks => [...prevTasks, details])
+  function addToTasks(category, id, task) {
+    if (category == "completed") {
+      setCompletedTasks(prev => ({
+        ...prev,
+        [id]: task
+      }))
+    }
+    if (category == "failed") {
+      setFailedTasks(prev => ({
+        ...prev,
+        [id]: task
+      }));
+
+    }
+    if (category == "pending") {
+      setPendingTasks(prev => ({
+        ...prev,
+        [id]: task
+      }))
+    }
   }
 
-  function removeFromTasks(setTasks, i) {
-    setTasks(prevTasks =>
-      prevTasks.filter((_, index) => index !== Number(i))
-    )
+  function removeFromTasks(category, taskId) {
+    if (category == "completed") {
+      setCompletedTasks(prev => {
+        delete prev[taskId];
+        return prev;
+      });
+    }
+    if (category == "failed") {
+      setFailedTasks(prev => {
+        delete prev[taskId];
+        return prev;
+      });
+    }
+    if (category == "pending") {
+      setPendingTasks(prev => {
+        delete prev[taskId];
+        return prev;
+      });
+    }
   }
 
-  
-
-  if (!pendingTasks || !completedTasks || !failedTasks)  {
+  if (!pendingTasks || !completedTasks || !failedTasks) {
     return <h1>Loading</h1>
   }
-  
+
+
   return (
     <>
-      <Navbar />
+      <Navbar setCreateTask={setCreateTask} />
       <Routes>
-        <Route path="/" element={<TaskView tasks={pendingTasks} category="Pending" />}></Route>
-        <Route path="/completed" element={<TaskView tasks={completedTasks} category="Completed" />}></Route>
-        <Route path="/failed" element={<TaskView tasks={failedTasks} category="Failed" />}></Route>
+        <Route path="/" element={<TaskView createTask={createTask} setCreateTask={setCreateTask} addToTasks={addToTasks} removeFromTasks={removeFromTasks} tasks={pendingTasks} category="Pending" />}></Route>
+        <Route path="/completed" element={<TaskView createTask={createTask} setCreateTask={setCreateTask} addToTasks={addToTasks} removeFromTasks={removeFromTasks} tasks={completedTasks} category="Completed" />}></Route>
+        <Route path="/failed" element={<TaskView createTask={createTask} setCreateTask={setCreateTask} addToTasks={addToTasks} removeFromTasks={removeFromTasks} tasks={failedTasks} category="Failed" />}></Route>
       </Routes>
     </>
   )
