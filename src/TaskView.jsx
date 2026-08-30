@@ -20,7 +20,7 @@ function TaskView({ createTask, setCreateTask, addToTasks, removeFromTasks, task
 
     return (
         <>
-            {createTask && (<Modal type="create-task" addToTasks={addToTasks} setCreateTask={setCreateTask}/>)}
+            {createTask && (<Modal type="create-edit" createTask={createTask} setCreateTask={setCreateTask} addToTasks={addToTasks} onClose={() => setCreateTask(false)}/>)}
             {modal.visible && (<Modal type={modal.type} removeFromTasks={removeFromTasks} addToTasks={addToTasks} taskId={modal.taskId} task={modal.task} onClose={modalClose}/>)}
             <div className="task-container">
                 <h1>{category} Tasks</h1>

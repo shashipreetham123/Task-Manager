@@ -1,18 +1,25 @@
 import './Modal.css'
 import { CrossIcon } from './Icons'
 import { useState } from 'react'
+import { getDate } from './Util'
 
-export function Modal({ type, addToTasks, removeFromTasks, task, taskId, onClose }) {
-  
-    if (type == "edit") {
-        return <EditModal addToTasks={addToTasks} removeFromTasks={removeFromTasks} editTask={task} editTaskId={taskId} onClose={onClose} />
+export function Modal({ type, addToTasks, removeFromTasks, task, taskId, onClose, setCreateTask, createTask }) {
+
+    if (type == "create-edit") {
+        return <CreateModifyModal
+            addToTasks={addToTasks}
+            removeFromTasks={removeFromTasks}
+            createTask={createTask}
+            setCreateTask={setCreateTask}
+            task={task}
+            taskId={taskId}
+            onClose={onClose}
+        />
     } else if (type == "delete-conformation") {
-        return <DeleteConformationModal removeFromTasks={removeFromTasks} taskId={taskId} task={task} onClose={onClose}/>
+        return <DeleteConformationModal removeFromTasks={removeFromTasks} taskId={taskId} task={task} onClose={onClose} />
     } else if (type == "mark-complete-conformation") {
-        return <MarkCompleteModal taskId={taskId} task={task} onClose={onClose} addToTasks={addToTasks} removeFromTasks={removeFromTasks}/>
-    }else if (type == "create-task"){
-
-    }{
+        return <MarkCompleteModal taskId={taskId} task={task} onClose={onClose} addToTasks={addToTasks} removeFromTasks={removeFromTasks} />
+    } else {
         return <h1>Hello World</h1>
     }
 }
@@ -31,11 +38,13 @@ function ModalHead({ title, onClose }) {
 }
 
 
-function EditModal({ editTaskId, addToTasks, removeFromTasks, editTask, onClose }) {
 
-    const [taskName, setTaskName] = useState(editTask.name)
-    const [createdDate, setCreatedDate] = useState(editTask.dateCreated)
-    const [compDate, setCompDate] = useState(editTask.finalDateOfCompletion)
+
+function CreateModifyModal({ createTask, taskId, task, addToTasks, removeFromTasks, onClose, setCreateTask }) {
+
+    const [taskName, setTaskName] = useState(createTask ? "" : task.name)
+    const [createdDate, setCreatedDate] = useState(createTask ? "" : task.created)
+    const [compDate, setCompDate] = useState(createTask ? "" : task.deadline)
 
     function updateTaskName(e) {
         setTaskName(e.target.value)
@@ -43,25 +52,29 @@ function EditModal({ editTaskId, addToTasks, removeFromTasks, editTask, onClose 
     function updateCompDate(e) {
         setCompDate(e.target.value)
     }
-    function updateCreatedDate(e) {
+    function upcreatedDate(e) {
         setCreatedDate(e.target.value)
     }
 
     function updateData() {
         const modifiedTask = {
             "name": taskName,
-            "dateCreated": createdDate,
-            "finalDateOfCompletion": compDate,
-            "status": "pending"
+            "created": createdDate,
+            "deadline": compDate,
+            "status": "pending",
+            "dateOfCompletion": null
         }
         const newID = Date.now()
 
         addToTasks("pending", newID, modifiedTask)
+        if (createTask) {
+            setCreateTask(false)
+        } else {
+            removeFromTasks(task.status, taskId)
+        }
 
-        removeFromTasks(editTask.status, editTaskId)
-
+        
         onClose()
-
     }
 
     function saveChanges() {
@@ -71,7 +84,7 @@ function EditModal({ editTaskId, addToTasks, removeFromTasks, editTask, onClose 
     return (
         <div className="modal-container on-top">
             <div className="modal">
-                <ModalHead title="Edit Task" onClose={onClose}/>
+                <ModalHead title="Create or Edit Task" onClose={onClose} />
                 <div className="modal-body">
                     <div className="modal-input-group">
                         <label>Task Name: </label>
@@ -79,7 +92,7 @@ function EditModal({ editTaskId, addToTasks, removeFromTasks, editTask, onClose 
                     </div>
                     <div className="modal-input-group">
                         <label>Date of Creation: </label>
-                        <input placeholder='Date of Creation' onChange={updateCreatedDate} value={createdDate} type="date" />
+                        <input placeholder='Date of Creation' onChange={upcreatedDate} value={createdDate} type="date" />
                     </div>
 
                     <div className="modal-input-group">
@@ -88,7 +101,9 @@ function EditModal({ editTaskId, addToTasks, removeFromTasks, editTask, onClose 
                     </div>
 
                     <div className="modal-button-group">
-                        <button onClick={saveChanges}>Save</button>
+                        <button onClick={saveChanges}>{createTask ? "Create" : "Save"}</button>
+                        <button onClick={onClose}>Close</button>
+
                     </div>
                 </div>
             </div>
@@ -98,10 +113,14 @@ function EditModal({ editTaskId, addToTasks, removeFromTasks, editTask, onClose 
     )
 }
 
-function DeleteConformationModal({taskId, task, removeFromTasks, onClose}) {
+function DeleteConformationModal({ taskId, task, removeFromTasks, onClose }) {
     function updateChanges() {
+        const updated = {
+            ...task,
+            completed: getDate()
+        }
         removeFromTasks(task.status, taskId)
-        
+
     }
     function saveChanges() {
         updateChanges()
@@ -111,7 +130,7 @@ function DeleteConformationModal({taskId, task, removeFromTasks, onClose}) {
     return (
         <div className="modal-container on-top">
             <div className="modal">
-                <ModalHead title="Delete Task" onClose={onClose}/>
+                <ModalHead title="Delete Task" onClose={onClose} />
                 <div className="modal-body">
                     <p>Are you Sure you want to Delete <strong>{task.name}</strong> Task</p>
                     <div className="modal-button-group">
@@ -124,7 +143,7 @@ function DeleteConformationModal({taskId, task, removeFromTasks, onClose}) {
     )
 }
 
-function MarkCompleteModal({taskId, task, addToTasks, removeFromTasks, onClose}) {
+function MarkCompleteModal({ taskId, task, addToTasks, removeFromTasks, onClose }) {
     function updateChanges() {
         addToTasks("completed", taskId, task)
 
@@ -138,7 +157,7 @@ function MarkCompleteModal({taskId, task, addToTasks, removeFromTasks, onClose})
     return (
         <div className="modal-container on-top">
             <div className="modal">
-                <ModalHead title="Delete Task" onClose={onClose}/>
+                <ModalHead title="Delete Task" onClose={onClose} />
                 <div className="modal-body">
                     <p>Are you Sure you want to Mark <strong>{task.name}</strong> Task as Complete</p>
                     <div className="modal-button-group">

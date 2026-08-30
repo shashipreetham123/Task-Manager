@@ -1,34 +1,30 @@
 {
     "4": {
-        "id": 4,
         "name": "Science Assignment",
-        "dateCreated": "2026-08-12",
-        "finalDateOfCompletion": "2027-09-14",
-        "dateOfCompletion": null,
+        "created": "2026-08-12",
+        "deadline": "2027-09-14",
+        "completed": null,
         "status": "pending"
     },
     "5": {
-        "id": 5,
         "name": "React Router Project",
-        "dateCreated": "2026-08-20",
-        "finalDateOfCompletion": "2026-08-30",
-        "dateOfCompletion": null,
+        "created": "2026-08-20",
+        "deadline": "2026-08-30",
+        "completed": null,
         "status": "pending"
     },
     "6": {
-        "id": 6,
         "name": "Database Integration",
-        "dateCreated": "2026-08-22",
-        "finalDateOfCompletion": "2026-09-05",
-        "dateOfCompletion": null,
+        "created": "2026-08-22",
+        "deadline": "2026-09-05",
+        "completed": null,
         "status": "pending"
     },
     "7": {
-        "id": 7,
         "name": "Operating Systems Assignment",
-        "dateCreated": "2026-08-25",
-        "finalDateOfCompletion": "2026-09-10",
-        "dateOfCompletion": null,
+        "created": "2026-08-25",
+        "deadline": "2026-09-10",
+        "completed": null,
         "status": "pending"
     }
 }

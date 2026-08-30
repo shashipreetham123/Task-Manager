@@ -1,13 +1,9 @@
 import './Card.css'
 import { TrashIcon, EditIcon, CheckIcon } from './Icons'
+import { caplitalize, dateReverse, isDate } from './Util'
 
 function Card({ id, task, category, setModal }) {
-    const keyMapping = {
-        "dateCreated": "Date Created",
-        "dateOfCompletion": "Date of Completion",
-        "finalDateOfCompletion": "Final Date of Completion",
-        "status": "Status"
-    }
+    const keyIgnore = ["name", "status"]
 
     function showModal(type) {
         setModal({
@@ -25,14 +21,19 @@ function Card({ id, task, category, setModal }) {
                 <h3 className="card-title">{task.name}</h3>
                 {
                     Object.entries(task).map(([key, value]) => {
-                        if (value && key != "id" && key != "name") {
-                            return <p key={key}>{keyMapping[key]}: {value}</p>
+                        if (value && !keyIgnore.includes(key)) {
+                            let ky = caplitalize(key)
+                            let val = value
+                            if (isDate(value)) {
+                                val = dateReverse(value)
+                            }
+                            return <p key={key}>{ky}: {val}</p>
                         }
                     })
                 }
             </div>
             <div className="card-actions">
-                <button className="btn-action" onClick={() => showModal("edit")}>
+                <button className="btn-action" onClick={() => showModal("create-edit")}>
                     <EditIcon></EditIcon>
                     <div>Edit</div>
                 </button>
