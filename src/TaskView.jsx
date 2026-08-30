@@ -7,6 +7,7 @@ function TaskView({ createTask, setCreateTask, addToTasks, removeFromTasks, task
     const [modal, setModal] = useState({
         type: null,
         task: null,
+        category: null,
         visible: false,
         taskId: null
     })
@@ -21,9 +22,8 @@ function TaskView({ createTask, setCreateTask, addToTasks, removeFromTasks, task
     return (
         <>
             {createTask && (<Modal type="create-edit" createTask={createTask} setCreateTask={setCreateTask} addToTasks={addToTasks} onClose={() => setCreateTask(false)}/>)}
-            {modal.visible && (<Modal type={modal.type} removeFromTasks={removeFromTasks} addToTasks={addToTasks} taskId={modal.taskId} task={modal.task} onClose={modalClose}/>)}
+            {modal.visible && (<Modal type={modal.type} taskCategory={modal.category} removeFromTasks={removeFromTasks} addToTasks={addToTasks} taskId={modal.taskId} task={modal.task} onClose={modalClose}/>)}
             <div className="task-container">
-                <h1>{category} Tasks</h1>
                 <div className="layout">
                     {
                         Object.entries(tasks).map(([id, task]) => {

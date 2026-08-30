@@ -43,20 +43,20 @@ function App() {
   }, [])
 
   function addToTasks(category, id, task) {
-    if (category == "completed") {
+    if (category.toLowerCase() == "completed") {
       setCompletedTasks(prev => ({
         ...prev,
         [id]: task
       }))
     }
-    if (category == "failed") {
+    if (category.toLowerCase() == "failed") {
       setFailedTasks(prev => ({
         ...prev,
         [id]: task
       }));
 
     }
-    if (category == "pending") {
+    if (category.toLowerCase() == "pending") {
       setPendingTasks(prev => ({
         ...prev,
         [id]: task
@@ -65,22 +65,25 @@ function App() {
   }
 
   function removeFromTasks(category, taskId) {
-    if (category == "completed") {
+    if (category.toLowerCase() == "completed") {
       setCompletedTasks(prev => {
-        delete prev[taskId];
-        return prev;
+        const next = { ...prev }
+        delete next[taskId];
+        return next;
       });
     }
-    if (category == "failed") {
+    if (category.toLowerCase() == "failed") {
       setFailedTasks(prev => {
-        delete prev[taskId];
-        return prev;
+        const next = { ...prev }
+        delete next[taskId];
+        return next;
       });
     }
-    if (category == "pending") {
+    if (category.toLowerCase() == "pending") {
       setPendingTasks(prev => {
-        delete prev[taskId];
-        return prev;
+        const next = { ...prev }
+        delete next[taskId];
+        return next;
       });
     }
   }

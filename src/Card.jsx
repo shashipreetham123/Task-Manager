@@ -7,8 +7,9 @@ function Card({ id, task, category, setModal }) {
 
     function showModal(type) {
         setModal({
-            type: type,
-            task: task,
+            type,
+            task,
+            category,
             visible: true,
             taskId: id
         })
@@ -18,7 +19,7 @@ function Card({ id, task, category, setModal }) {
     return (
         <div className="card">
             <div className="card-body">
-                <h3 className="card-title">{task.name}</h3>
+                <h2 className="card-title">{task.name}</h2>
                 {
                     Object.entries(task).map(([key, value]) => {
                         if (value && !keyIgnore.includes(key)) {
@@ -35,7 +36,7 @@ function Card({ id, task, category, setModal }) {
             <div className="card-actions">
                 <button className="btn-action" onClick={() => showModal("create-edit")}>
                     <EditIcon></EditIcon>
-                    <div>Edit</div>
+                    <div>{category == "pending" ? "Edit" : "Recreate"}</div>
                 </button>
                 <button className="btn-action" onClick={() => showModal("delete-conformation")}>
                     <TrashIcon></TrashIcon>
