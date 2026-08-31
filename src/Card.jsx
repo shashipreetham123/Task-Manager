@@ -8,7 +8,6 @@ function Card({ id, task, category, setModal }) {
     function showModal(type) {
         setModal({
             type,
-            task,
             category,
             visible: true,
             taskId: id
@@ -36,7 +35,7 @@ function Card({ id, task, category, setModal }) {
             <div className="card-actions">
                 <button className="btn-action" onClick={() => showModal("create-edit")}>
                     <EditIcon></EditIcon>
-                    <div>{category == "pending" ? "Edit" : "Recreate"}</div>
+                    <div>{category == "Pending" ? "Edit" : "Recreate"}</div>
                 </button>
                 <button className="btn-action" onClick={() => showModal("delete-conformation")}>
                     <TrashIcon></TrashIcon>

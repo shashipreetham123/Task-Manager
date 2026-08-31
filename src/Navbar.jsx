@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { HamburgerIcon } from "./Icons";
+import { AppContext } from "./AppContext";
 
-function Navbar({setCreateTask}) {
+function Navbar() {
     const [navbarToggle, setNavbarToggle] = useState(false);
 
+    const {setCreateTask} = useContext(AppContext)
 
     return (
         <nav className="navbar">

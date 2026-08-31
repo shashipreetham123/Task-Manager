@@ -1,12 +1,16 @@
 import './TaskView.css'
 import Card from './Card'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Modal } from './Modal'
-function TaskView({ createTask, setCreateTask, addToTasks, removeFromTasks, tasks, category }) {
+import { AppContext } from './AppContext'
+
+
+function TaskView({tasks, category }) {
+
+    const {createTask, setCreateTask} = useContext(AppContext)
 
     const [modal, setModal] = useState({
         type: null,
-        task: null,
         category: null,
         visible: false,
         taskId: null
@@ -21,8 +25,8 @@ function TaskView({ createTask, setCreateTask, addToTasks, removeFromTasks, task
 
     return (
         <>
-            {createTask && (<Modal type="create-edit" createTask={createTask} setCreateTask={setCreateTask} addToTasks={addToTasks} onClose={() => setCreateTask(false)}/>)}
-            {modal.visible && (<Modal type={modal.type} taskCategory={modal.category} removeFromTasks={removeFromTasks} addToTasks={addToTasks} taskId={modal.taskId} task={modal.task} onClose={modalClose}/>)}
+            {createTask && (<Modal type="create-edit" onClose={() => setCreateTask(false)}/>)}
+            {modal.visible && (<Modal type={modal.type} taskCategory={modal.category} taskId={modal.taskId} onClose={modalClose}/>)}
             <div className="task-container">
                 <div className="layout">
                     {

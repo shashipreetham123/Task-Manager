@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react"
+import { useEffect, useContext } from "react"
 import { Route, Routes } from "react-router-dom"
 import Navbar from "./Navbar"
 import TaskView from "./TaskView"
+import { AppContext } from "./AppContext"
 
 function readFile(name, callback) {
   fetch(`http://localhost:5000/read/${name}`, {
@@ -17,11 +18,10 @@ function readFile(name, callback) {
 
 
 function App() {
-  const [pendingTasks, setPendingTasks] = useState(null)
-  const [completedTasks, setCompletedTasks] = useState(null)
-  const [failedTasks, setFailedTasks] = useState(null)
-  const [createTask, setCreateTask] = useState(false)
 
+  const {pendingTasks, setPendingTasks} = useContext(AppContext)
+  const {completedTasks, setCompletedTasks} = useContext(AppContext)
+  const {failedTasks, setFailedTasks} = useContext(AppContext)
 
   useEffect(() => {
     readFile("pending", (result) => {
@@ -39,54 +39,7 @@ function App() {
         setFailedTasks(JSON.parse(result.data))
       }
     })
-
   }, [])
-
-  function addToTasks(category, id, task) {
-    if (category.toLowerCase() == "completed") {
-      setCompletedTasks(prev => ({
-        ...prev,
-        [id]: task
-      }))
-    }
-    if (category.toLowerCase() == "failed") {
-      setFailedTasks(prev => ({
-        ...prev,
-        [id]: task
-      }));
-
-    }
-    if (category.toLowerCase() == "pending") {
-      setPendingTasks(prev => ({
-        ...prev,
-        [id]: task
-      }))
-    }
-  }
-
-  function removeFromTasks(category, taskId) {
-    if (category.toLowerCase() == "completed") {
-      setCompletedTasks(prev => {
-        const next = { ...prev }
-        delete next[taskId];
-        return next;
-      });
-    }
-    if (category.toLowerCase() == "failed") {
-      setFailedTasks(prev => {
-        const next = { ...prev }
-        delete next[taskId];
-        return next;
-      });
-    }
-    if (category.toLowerCase() == "pending") {
-      setPendingTasks(prev => {
-        const next = { ...prev }
-        delete next[taskId];
-        return next;
-      });
-    }
-  }
 
   if (!pendingTasks || !completedTasks || !failedTasks) {
     return <h1>Loading</h1>
@@ -95,11 +48,11 @@ function App() {
 
   return (
     <>
-      <Navbar setCreateTask={setCreateTask} />
+      <Navbar />
       <Routes>
-        <Route path="/" element={<TaskView createTask={createTask} setCreateTask={setCreateTask} addToTasks={addToTasks} removeFromTasks={removeFromTasks} tasks={pendingTasks} category="Pending" />}></Route>
-        <Route path="/completed" element={<TaskView createTask={createTask} setCreateTask={setCreateTask} addToTasks={addToTasks} removeFromTasks={removeFromTasks} tasks={completedTasks} category="Completed" />}></Route>
-        <Route path="/failed" element={<TaskView createTask={createTask} setCreateTask={setCreateTask} addToTasks={addToTasks} removeFromTasks={removeFromTasks} tasks={failedTasks} category="Failed" />}></Route>
+        <Route path="/" element={<TaskView tasks={pendingTasks} category="Pending" />}></Route>
+        <Route path="/completed" element={<TaskView tasks={completedTasks} category="Completed" />}></Route>
+        <Route path="/failed" element={<TaskView tasks={failedTasks} category="Failed" />}></Route>
       </Routes>
     </>
   )

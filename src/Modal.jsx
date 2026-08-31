@@ -1,25 +1,29 @@
 import './Modal.css'
 import { CrossIcon } from './Icons'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { getDate } from './Util'
+import { AppContext } from './AppContext'
 
-export function Modal({ type, taskCategory, addToTasks, removeFromTasks, task, taskId, onClose, setCreateTask, createTask }) {
+export function Modal({ type, taskCategory, taskId, onClose }) {
 
     if (type == "create-edit") {
         return <CreateModifyModal
-            addToTasks={addToTasks}
-            removeFromTasks={removeFromTasks}
-            createTask={createTask}
-            setCreateTask={setCreateTask}
-            task={task}
             taskId={taskId}
             onClose={onClose}
             taskCategory={taskCategory}
         />
     } else if (type == "delete-conformation") {
-        return <DeleteConformationModal taskCategory={taskCategory} removeFromTasks={removeFromTasks} taskId={taskId} task={task} onClose={onClose} />
+        return <DeleteConformationModal
+            taskCategory={taskCategory}
+            taskId={taskId}
+            onClose={onClose}
+        />
     } else if (type == "mark-complete-conformation") {
-        return <MarkCompleteModal taskCategory={taskCategory} taskId={taskId} task={task} onClose={onClose} addToTasks={addToTasks} removeFromTasks={removeFromTasks} />
+        return <MarkCompleteModal
+            taskCategory={taskCategory}
+            taskId={taskId}
+            onClose={onClose}
+        />
     } else {
         return <h1>Hello World</h1>
     }
@@ -39,9 +43,11 @@ function ModalHead({ title, onClose }) {
 }
 
 
+function CreateModifyModal({taskCategory, taskId, onClose}) {
 
+    const {createTask, setCreateTask, addToTasks, removeFromTasks, getTask} = useContext(AppContext)
 
-function CreateModifyModal({ createTask, taskCategory, taskId, task, addToTasks, removeFromTasks, onClose, setCreateTask }) {
+    const task = getTask(taskId, createTask ? "" : taskCategory)
 
     const [taskName, setTaskName] = useState(createTask ? "" : task.name)
     const [createdDate, setCreatedDate] = useState(createTask ? "" : task.created)
@@ -74,7 +80,7 @@ function CreateModifyModal({ createTask, taskCategory, taskId, task, addToTasks,
             removeFromTasks(taskCategory, taskId)
         }
 
-        
+
         onClose()
     }
 
@@ -114,7 +120,12 @@ function CreateModifyModal({ createTask, taskCategory, taskId, task, addToTasks,
     )
 }
 
-function DeleteConformationModal({ taskId, task, taskCategory, removeFromTasks, onClose }) {
+function DeleteConformationModal({ taskId, taskCategory, onClose }) {
+
+    const {removeFromTasks, getTask} = useContext(AppContext)
+    const task = getTask(taskId, taskCategory)
+
+
     function updateChanges() {
         removeFromTasks(taskCategory, taskId)
     }
@@ -139,7 +150,12 @@ function DeleteConformationModal({ taskId, task, taskCategory, removeFromTasks, 
     )
 }
 
-function MarkCompleteModal({ taskId, task, taskCategory, addToTasks, removeFromTasks, onClose }) {
+function MarkCompleteModal({ taskId, taskCategory, onClose }) {
+
+    const {addToTasks, removeFromTasks, getTask} = useContext(AppContext)
+    const task = getTask(taskId, taskCategory)
+
+
     function updateChanges() {
 
         const updated = {
