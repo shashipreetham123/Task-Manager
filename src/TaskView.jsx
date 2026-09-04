@@ -3,9 +3,10 @@ import Card from './Card'
 import { useState, useContext } from 'react'
 import { Modal } from './Modal'
 import { AppContext } from './AppContext'
+import { PlusIcon } from './Icons'
 
 
-function TaskView({tasks, category }) {
+function TaskView({tasks, category}) {
 
     const {createTask, setCreateTask} = useContext(AppContext)
 
@@ -28,6 +29,7 @@ function TaskView({tasks, category }) {
             {createTask && (<Modal type="create-edit" onClose={() => setCreateTask(false)}/>)}
             {modal.visible && (<Modal type={modal.type} taskCategory={modal.category} taskId={modal.taskId} onClose={modalClose}/>)}
             <div className="task-container">
+                {Object.entries(tasks).length == 0 && (<div className='empty-text'>No {category} Tasks</div>)}
                 <div className="layout">
                     {
                         Object.entries(tasks).map(([id, task]) => {
@@ -36,6 +38,13 @@ function TaskView({tasks, category }) {
                     }
                 </div>
             </div>
+
+            { (category == "Pending") && (<div className="create-new-btn" tabIndex={0} onClick={() => {setCreateTask(true)}}>
+                <PlusIcon />
+                <div>Create New Task</div>
+            </div>
+            )
+            }
         </>
     )
 }

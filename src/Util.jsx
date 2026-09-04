@@ -27,3 +27,14 @@ export function caplitalize(string) {
     return [string[0].toUpperCase(), ...string.slice(1, string.length)].join("")
 }
 
+export function writeFile(name, data, callback=()=>{}) {
+    fetch(`http://localhost:5000/write/${name}`, {
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    }).then(res => {
+        return res.json()
+    }).then(callback)
+}

@@ -1,13 +1,10 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { HamburgerIcon } from "./Icons";
-import { AppContext } from "./AppContext";
 
 function Navbar() {
     const [navbarToggle, setNavbarToggle] = useState(false);
-
-    const {setCreateTask} = useContext(AppContext)
 
     return (
         <nav className="navbar">
@@ -16,9 +13,6 @@ function Navbar() {
             </button>
 
             <div className="navbar-nav">
-                <NavLink className="nav-link" onClick={() => setCreateTask(true)}>
-                    New Task
-                </NavLink>
                 <NavLink to="/" className="nav-link">
                     Pending
                 </NavLink>

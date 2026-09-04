@@ -1,9 +1,9 @@
 import './Card.css'
-import { TrashIcon, EditIcon, CheckIcon } from './Icons'
+import { TrashIcon, EditIcon, CheckIcon, ViewIcon } from './Icons'
 import { caplitalize, dateReverse, isDate } from './Util'
 
 function Card({ id, task, category, setModal }) {
-    const keyIgnore = ["name", "status"]
+    const keyIgnore = ["name", "status", "description"]
 
     function showModal(type) {
         setModal({
@@ -18,7 +18,10 @@ function Card({ id, task, category, setModal }) {
     return (
         <div className="card">
             <div className="card-body">
-                <h2 className="card-title">{task.name}</h2>
+                <h2>{task.name}</h2>
+                <div className='card-desc'>
+                    {(task.description) && task.description}
+                </div>
                 {
                     Object.entries(task).map(([key, value]) => {
                         if (value && !keyIgnore.includes(key)) {
@@ -31,8 +34,14 @@ function Card({ id, task, category, setModal }) {
                         }
                     })
                 }
+                
             </div>
             <div className="card-actions">
+                <button className="btn-action" onClick={() => showModal("view")}>
+                    <ViewIcon></ViewIcon>
+                    <div>View</div>
+                </button>
+                
                 <button className="btn-action" onClick={() => showModal("create-edit")}>
                     <EditIcon></EditIcon>
                     <div>{category == "Pending" ? "Edit" : "Recreate"}</div>
@@ -41,6 +50,7 @@ function Card({ id, task, category, setModal }) {
                     <TrashIcon></TrashIcon>
                     <div>Delete</div>
                 </button>
+                
                 {
                     (category == "Pending" &&
                         <>

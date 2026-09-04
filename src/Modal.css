@@ -12,6 +12,7 @@
 .modal-container .modal {
     min-width: 400px;
     padding: 10px;
+    margin: 10px;
     background-color: white;
     box-shadow: 0 0 10px rgb(72, 72, 72);
     border-radius: 3px;
@@ -71,13 +72,29 @@
     transition: outline-color 250ms ease;
 }
 
+.modal-input-group textarea {
+    outline: none;
+    padding: 10px;
+    height: 80px;
+    border-radius: 3px;
+    outline: 4px solid rgba(42, 101, 251, 0);
+    transition: outline-color 250ms ease;
+    font-family: system-ui;
+
+}
+
 .modal-input-group input:focus {
+    outline: 4px solid rgba(42, 101, 251, 0.61);
+}
+
+.modal-input-group textarea:focus {
     outline: 4px solid rgba(42, 101, 251, 0.61);
 
 }
 
+
 .modal-button-group {
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .modal-button-group button {
@@ -90,4 +107,11 @@
 }
 .modal-button-group button:hover {
     background-color: rgb(200, 200, 200);
+}
+
+.modal-err-message {
+    color: rgb(255, 71, 71);
+    font-size: 1rem;
+    text-align: center;
+    margin: 5px 0;
 }

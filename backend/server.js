@@ -6,6 +6,7 @@ const cors = require("cors")
 app.use(cors())
 app.use(express.json())
 
+
 app.get("/read/:id", (req, res) => {
     let data = {
         "data": null,
@@ -23,10 +24,23 @@ app.get("/read/:id", (req, res) => {
 });
 
 app.post("/write/:id", (req, res) => {
-    const exists = fs.existsSync(`./${req.params.id}.json`)
-    if (exists) {
-        
+    
+    let response = {
+        "success": false,
+        "err": null
     }
+
+    try {
+        fs.writeFileSync(`./${req.params.id}.json`, JSON.stringify(req.body, null, 2))
+        response.success= true
+    } catch (error) {
+        response.success = false
+        response.err = error
+    }
+
+    res.write(JSON.stringify(response))
+    res.end()
+
 })
 
 

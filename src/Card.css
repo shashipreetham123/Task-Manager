@@ -5,6 +5,15 @@
     box-shadow: 0 0 5px gray;
 }
 
+.card-desc {
+    max-height: 150px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+}
+
 .btn-action {
     height: 40px;
     font-size: 16px;
@@ -17,10 +26,11 @@
     border: none;
 }
 
-.btn-action svg{
+.btn-action svg {
     height: 100%;
     aspect-ratio: 1;
 }
+
 .btn-action div {
     padding: 5px;
 
